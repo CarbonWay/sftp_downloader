@@ -3,7 +3,9 @@
 #
 # Sample config file for Simple and Secure Backup 
 # GNU General Public License (GPL) 3.0
+#
 # Gerard Tost (recull@digipime.com)
+# https://github.com/gerardtost/
 #
 # You can ask your ISP if you have doubts 
 # about remote server, SSH or SFTP.

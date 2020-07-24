@@ -1,4 +1,4 @@
-#### English version
+[Lea esto en **castellano**](README.es.md) · [Llegiu això en **català**](README.ca.md)
 
 # Simple and secure backup
 ## Secure download of remote files to our machine using SSH / SFTP

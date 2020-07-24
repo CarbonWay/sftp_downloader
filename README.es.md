@@ -1,4 +1,4 @@
-#### Versión en castellano
+[Read this in **English**](README.md) · [Llegiu això en **català**](README.ca.md)
 
 # Copia de seguridad simple y segura
 ## Descarga segura de ficheros remotos a nuestro ordenador usando SSH / SFTP

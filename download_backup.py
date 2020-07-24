@@ -2,11 +2,14 @@
 # -*- coding: utf-8  -*-
 
 #
-# Simple and Secure Backup 
+# Simple and Secure Backup
 # GNU General Public License (GPL) 3.0
+#
 # Gerard Tost (recull@digipime.com)
+# https://github.com/gerardtost/
 #
 
+import sys
 import paramiko
 import datetime
 import regex as re
@@ -37,7 +40,13 @@ def write_log(line):
 # SSH/SFTP clients
 client = paramiko.SSHClient()
 client.set_missing_host_key_policy(paramiko.WarningPolicy())
-client.connect(**access)
+
+try:
+    client.connect(**access)
+except:
+    print("Error: Unable to connect to the remote server.")
+    sys.exit(1)
+
 
 sftp = client.open_sftp()
 sftp.chdir(download_config.remote_path)

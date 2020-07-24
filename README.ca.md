@@ -1,4 +1,4 @@
-#### Versió en català ####
+[Read this in **English**](README.md) · [Lea esto en **castellano**](README.es.md)
 
 # Còpia de seguretat simple i segura
 ## Descàrrega segura de fitxers remots al nostre ordinador utilitzant SSH / SFTP
