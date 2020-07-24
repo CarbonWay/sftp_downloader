@@ -5,7 +5,7 @@
 
 Simple Python program with which files are downloaded from a folder on a remote server, to store them as backup copies on our local computer. It is useful to download backup copies of web control panels, databases, etc.
 
-The download can be automated by programming it using Cron (Linux), Automator (Mac OS) or the Task Scheduler (Windows). It works using the SSH / SFTP protocol and a secure connection is established between our computer and the remote server, away from prying eyes.
+The download can be automated by programming it using Cron or Systemd (Linux), Automator (Mac OS) or the Task Scheduler (Windows). It works using the SSH / SFTP protocol and a secure connection is established between our computer and the remote server, away from prying eyes.
 
 The current date is automatically added to your downloaded file name in downloaded files, so they can always be stored in the same local folder and files with the same name will not be overwritten.
 

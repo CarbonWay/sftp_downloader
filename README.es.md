@@ -5,7 +5,7 @@
 
 Sencillo programa en Python con el que se descargan ficheros desde una carpeta en un servidor remoto, para almacenarlos como copias de seguridad en nuestro ordenador local.  Es útil para descargar copias de seguridad de paneles de control web, bases de datos, etc. 
 
-Se puede automatizar la descarga programándola mediante Cron (Linux), Automator (Mac OS) o el Programador de Tareas (Windows). Funciona mediante protocolo SSH/SFTP y se establece una conexión segura entre nuestro ordenador y el servidor remoto, alejada de miradas indiscretas.
+Se puede automatizar la descarga programándola mediante Cron o Systemd (Linux), Automator (Mac OS) o el Programador de Tareas (Windows). Funciona mediante protocolo SSH/SFTP y se establece una conexión segura entre nuestro ordenador y el servidor remoto, alejada de miradas indiscretas.
 
 A los archivos descargados se les añade automáticamente la fecha actual en el nombre de archivo, por lo que se pueden almacenar siempre en la misma carpeta local y no se sobreescribirán archivos con el mismo nombre.
 

@@ -45,4 +45,4 @@ log_name = "download_backups.log"
 #
 # Yes, delete all files: True
 # Nooo! Do not delete anything: False
-delete_active = True
+delete_active = False

@@ -5,7 +5,7 @@
 
 Senzill programa en Python amb el qual es descarreguen fitxers d'una carpeta d'un servidor remot, per a emmagatzemar-los com a còpies de seguretat al nostre ordinador local. És útil per a descarregar còpies de seguretat de taulers de control web, bases de dades, etc.
 
-Es pot automatitzar la descàrrega programant-la amb Cron (Linux), Automator (Mac OS) o el Programador de Tasques (Windows). Funciona mitjançant protocol SSH / SFTP i s'estableix una connexió segura entre el nostre ordinador i el servidor remot, allunyada de mirades indiscretes.
+Es pot automatitzar la descàrrega programant-la amb Cron o Systemd (Linux), Automator (Mac OS) o el Programador de Tasques (Windows). Funciona mitjançant protocol SSH / SFTP i s'estableix una connexió segura entre el nostre ordinador i el servidor remot, allunyada de mirades indiscretes.
 
 Als arxius descarregats se'ls afegeix automàticament la data actual al nom d'arxiu, de manera que es poden emmagatzemar sempre a la mateixa carpeta local i no se sobreescriuran arxius amb el mateix nom.
 
