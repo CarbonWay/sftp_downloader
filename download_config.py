@@ -12,18 +12,18 @@
 #
 
 # Remote
-remote_user = "gerard"
-remote_psswd = "unusuarimes"
-remote_server = "192.168.1.100"
+remote_user = "/server/web/photos"
+remote_psswd = ""
+remote_server = ""
 remote_port = "22"
-remote_path = "/home/gerard/backupsproves"
+remote_path = ""
 
 # Local
-local_path = "/home/base/proves"
+local_path = "/home/user/backups"
 
 # Logs
 log_active = True
-log_path = "/home/base/proves"
+log_path = "/home/user/backups"
 log_name = "download_backups.log"
 
 # Delete files after downloading?
