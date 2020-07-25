@@ -3,6 +3,7 @@
 
 #
 # Simple and Secure Backup
+#
 # GNU General Public License (GPL) 3.0
 #
 # Gerard Tost (recull@digipime.com)
@@ -10,6 +11,7 @@
 #
 
 import sys
+import os
 import paramiko
 import datetime
 import regex as re
@@ -43,13 +45,29 @@ client.set_missing_host_key_policy(paramiko.WarningPolicy())
 
 try:
     client.connect(**access)
-except:
-    print("Error: Unable to connect to the remote server.")
+except paramiko.ssh_exception.NoValidConnectionsError:
+    print("\nConnection Error: Please, verify your network connection or modify your remotes server or port in the config file.")
     sys.exit(1)
-
+except paramiko.ssh_exception.AuthenticationException:
+    print("\nAuthentication Error: Please, verify your connection data in the config file.")
+    sys.exit(1)  
 
 sftp = client.open_sftp()
-sftp.chdir(download_config.remote_path)
+
+try:
+    sftp.chdir(download_config.remote_path)
+except FileNotFoundError:
+    print("\nWrong path: Please, verify your remote path in the config file.")
+    sys.exit(1) 
+
+if download_config.log_active:
+    if not os.path.exists(download_config.log_path):
+        print("\nWrong path: Please, verify your log path or disable log in the config file.")
+        sys.exit(1) 
+
+if not os.path.exists(download_config.local_path):
+    print("\nWrong path: Please, verify your local path in the config file.")
+    sys.exit(1)
 
 myfiles = sftp.listdir()
 print(myfiles)
