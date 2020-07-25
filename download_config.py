@@ -19,11 +19,11 @@ remote_port = "22"
 remote_path = ""
 
 # Local
-local_path = "/home/user/backups"
+local_path = ""
 
 # Logs
 log_active = True
-log_path = "/home/user/backups"
+log_path = ""
 log_name = "download_backups.log"
 
 # Delete files after downloading?
