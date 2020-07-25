@@ -1,7 +1,7 @@
 [Lea esto en **castellano**](README.es.md) · [Llegiu això en **català**](README.ca.md)
 
 # Simple and secure backup
-## Secure download of remote files to our machine using SSH / SFTP
+## Secure download remote files to our machine using SSH / SFTP
 
 Simple Python program with which files are downloaded from a folder on a remote server, to store them as backup copies on our local computer. It is useful to download backup copies of web control panels, databases, etc.
 
@@ -18,7 +18,7 @@ Requirements:
 
 - The remote server must allow access via SSH and perhaps have the SFTP option activated. It can be easily configured on your domain control panel.
 - Have access data by terminal to the remote server: user, password, port (usually 22) and folder where the files are.
-- Python 3 installed with the `paramiko` and `regex` modules. Valid for any system: Windows, Mac OS, Linux. Tested in Python 3.8.
+- Python 3 installed with `paramiko` and `regex` modules. Valid for any system: Windows, Mac OS, Linux. Tested in Python 3.8.
 
 Instructions:
 
