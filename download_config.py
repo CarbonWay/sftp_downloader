@@ -12,7 +12,7 @@
 #
 
 # Remote
-remote_user = "/server/web/photos"
+remote_user = ""
 remote_psswd = ""
 remote_server = ""
 remote_port = "22"
