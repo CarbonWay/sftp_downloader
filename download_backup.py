@@ -14,7 +14,6 @@ import sys
 import os
 import paramiko
 import datetime
-import regex as re
 import download_config
 
 access = dict(hostname=download_config.remote_server,
@@ -25,19 +24,10 @@ access = dict(hostname=download_config.remote_server,
 dir_log = download_config.log_path + "/" + download_config.log_name 
 cd_dir_files = "cd " + download_config.remote_path
 
-# Time details
-search_today_date = re.search(r"^(\d{4}-\d{2}-\d{2}) (\d{2}):(\d{2})", str(datetime.datetime.now()))
-
-today_date = "{}_{}-{}_".format(
-    search_today_date[1], search_today_date[2], search_today_date[3])
-
-today_date_log = "{} {}:{}".format(
-    search_today_date[1], search_today_date[2], search_today_date[3])
-
 # Simple log
 def write_log(line):  
     with open(dir_log, "a") as log:
-        log.write("{} {}{}".format(today_date_log, line, "\n"))
+        log.write("{} {}{}".format(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"), line, "\n"))
 
 # SSH/SFTP clients
 client = paramiko.SSHClient()
@@ -93,7 +83,7 @@ for myfile in myfiles:
             write_log("Starting the download of the \"{}\" file".format(myfile))
 
         myfile_remote = "{}/{}".format(download_config.remote_path, myfile)
-        myfile_local = "{}/{}{}".format(download_config.local_path, today_date, myfile)
+        myfile_local = "{}/{}{}".format(download_config.local_path, datetime.datetime.now().strftime("%Y-%m-%d_%H.%M.%S_"), myfile)
 
         sftp.get(myfile_remote, myfile_local)
 
@@ -102,9 +92,9 @@ for myfile in myfiles:
         if download_config.log_active:
             write_log("File \"{}\"  downloaded successfully".format(myfile))
 
-        print("File renamed to {}{}".format(today_date, myfile))
+        print("File renamed to {}{}".format(datetime.datetime.now().strftime("%Y-%m-%d_%H.%M.%S_"), myfile))
         if download_config.log_active:
-            write_log("File renamed to {}{}".format(today_date, myfile))
+            write_log("File renamed to {}{}".format(datetime.datetime.now().strftime("%Y-%m-%d_%H.%M.%S_"), myfile))
 
         # Delete remote files?
         if download_config.delete_active: 

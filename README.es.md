@@ -18,7 +18,7 @@ Requisitos:
 
 - El servidor remoto debe permitir un acceso mediante SSH y quizá tener activada la opción SFTP. Se puede configurar fácilmente en su panel de control del dominio.
 - Disponer de los datos de acceso por terminal al servidor remoto: usuario, contraseña,puerto (normalmente 22) y carpeta en la que están los archivos.
-- Python 3 instalado con los módulos `paramiko` y `regex`. Válido para cualquier sistema: Windows, Mac OS, Linux. Testeado en Python 3.8.
+- Python 3 instalado con el módulo `paramiko`. Válido para cualquier sistema: Windows, Mac OS, Linux. Testeado en Python 3.8.
 
 Instrucciones:
 

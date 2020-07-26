@@ -18,7 +18,7 @@ Requisits:
 
 - El servidor remot ha de permetre un accés via SSH i potser tenir activada l'opció SFTP. Es pot configurar fàcilment al vostre tauler de control del domini.
 - Disposar de les dades d'accés per terminal a servidor remot: usuari, contrasenya, port (normalment 22) i carpeta en la qual hi ha els arxius.
-- Python 3 instal·lat amb els mòduls `paramiko` i `regex`. Vàlid per a qualsevol sistema: Windows, Mac OS, Linux. Provat amb Python 3.8.
+- Python 3 instal·lat amb el mòdul `paramiko`. Vàlid per a qualsevol sistema: Windows, Mac OS, Linux. Provat amb Python 3.8.
 
 Instruccions:
 

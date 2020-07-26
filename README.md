@@ -18,7 +18,7 @@ Requirements:
 
 - The remote server must allow access via SSH and perhaps have the SFTP option activated. It can be easily configured on your domain control panel.
 - Have access data by terminal to the remote server: user, password, port (usually 22) and folder where the files are.
-- Python 3 installed with `paramiko` and `regex` modules. Valid for any system: Windows, Mac OS, Linux. Tested in Python 3.8.
+- Python 3 installed with the `paramiko` module. Valid for any system: Windows, Mac OS, Linux. Tested in Python 3.8.
 
 Instructions:
 
