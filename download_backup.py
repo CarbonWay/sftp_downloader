@@ -63,10 +63,11 @@ myfiles = sftp.listdir()
 print(myfiles)
 total_myfiles = len(myfiles)
 
-if total_myfiles == 0:
+if not total_myfiles:
     if download_config.log_active:
         write_log("There are no files in the remote directory")
     print("There are no files in the remote directory")
+    sys.exit(0)
 else:
     if download_config.log_active:
         write_log("Total files and directories: {}".format(total_myfiles))
