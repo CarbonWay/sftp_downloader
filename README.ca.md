@@ -18,10 +18,14 @@ Requisits:
 
 - El servidor remot ha de permetre un accés via SSH i potser tenir activada l'opció SFTP. Es pot configurar fàcilment al vostre tauler de control del domini.
 - Disposar de les dades d'accés per terminal a servidor remot: usuari, contrasenya, port (normalment 22) i carpeta en la qual hi ha els arxius.
-- Python 3 instal·lat amb el mòdul `paramiko`. Vàlid per a qualsevol sistema: Windows, Mac OS, Linux. Provat amb Python 3.8.
+- Python 3 instal·lat amb els mòduls `paramiko`i `tqdm`. Vàlid per a qualsevol sistema: Windows, Mac OS, Linux. Provat amb Python 3.8.
 
 Instruccions:
 
 - Descarregueu aquests fitxers al vostre ordinador clonant el projecte o com a zip comprimit.
 - Obriu el fitxer `download_config.py` amb qualsevol editor de text pla, afegiu-li les dades de connexió i les opcions desitjades. Hi ha exemples al fitxer `download_config_sample.py`
 - Executar el fitxer `download_backup.py` cridant l'intèrpret Python (`python3 download_backup.py`). A Linux i Mac OS podeu donar-li permisos en línia de comandes per tal que s'executi sense cridar l'intèrpret: `chmod +x download_backup.py`
+
+Mostra per terminal:
+
+![còpia de pantalla](screenshot_ssd.png)

@@ -1,7 +1,7 @@
 # -*- coding: utf-8  -*-
 
 #
-# Config file for Simple and Secure Backup 
+# Config file for Simple and Secure Backup
 #
 # GNU General Public License (GPL) 3.0
 #
