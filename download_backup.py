@@ -1,15 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8  -*-
 
-#
-# Simple and Secure Backup
-#
-# GNU General Public License (GPL) 3.0
-#
-# Gerard Tost (recull@digipime.com)
-# https://github.com/gerardtost/
-#
-
 import sys
 import os
 import datetime
