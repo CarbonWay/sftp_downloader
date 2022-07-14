@@ -13,6 +13,7 @@
 import sys
 import os
 import datetime
+from pathlib import Path
 
 import paramiko
 import tqdm
@@ -22,10 +23,12 @@ import download_config
 access = dict(hostname=download_config.remote_server,
               port=download_config.remote_port,
               username=download_config.remote_user,
-              password=download_config.remote_psswd)
+              password=download_config.remote_psswd,
+              allow_agent=False,
+              look_for_keys=False)
 
 dir_log = "{}/{}".format(download_config.log_path, download_config.log_name)
-
+allowed_extension = download_config.allowed_extension
 
 def write_log(line):
     """Simple log """
@@ -61,12 +64,6 @@ def download_remote_file(connection, filename, remote_file, local_file):
     if download_config.log_active:
         write_log("File \"{}\"  downloaded successfully".format(filename))
 
-    print("File renamed to {}{}".format(
-        datetime.datetime.now().strftime("%Y-%m-%d_%H.%M.%S_"), filename))
-    if download_config.log_active:
-        write_log("File renamed to {}{}".format(
-            datetime.datetime.now().strftime("%Y-%m-%d_%H.%M.%S_"), filename))
-
 
 def delete_remote_file(connection, filename, remote_file):
     """Delete the remote file """
@@ -86,10 +83,18 @@ def delete_remote_file(connection, filename, remote_file):
         write_log(
             "Successfully deleted the remote file {}".format(filename))
 
+def file_exists(path):
+    file_exists = os.path.exists(path)
+    return file_exists
+
+def match_extension(path):
+    extension = Path(path).suffix
+    match = True if extension == allowed_extension else False
+    return match
 
 # SSH/SFTP clients
 client = paramiko.SSHClient()
-client.set_missing_host_key_policy(paramiko.WarningPolicy())
+client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
 
 try:
     client.connect(**access)
@@ -147,15 +152,25 @@ for myfile in myfiles:
     verify_dir = str(sftp.lstat(myfile))
     if "d" not in verify_dir[0]:
         myfile_remote = "{}/{}".format(download_config.remote_path, myfile)
-        myfile_local = "{}/{}{}".format(download_config.local_path,
-                                        datetime.datetime.now().strftime("%Y-%m-%d_%H.%M.%S_"), myfile)
+        myfile_local = "{}/{}".format(download_config.local_path, myfile)
 
-        download_remote_file(sftp, myfile, myfile_remote,
-                             myfile_local)
+        if match_extension(myfile):
+            if file_exists(myfile_local):
+                write_log("File is already here: {}. Skipping...".format(myfile))
+                print("File is already here: {}. Skipping...".format(myfile))
+                continue
 
-        # Delete remote files?
-        if download_config.delete_active:
-            delete_remote_file(sftp, myfile, myfile_remote)
+            download_remote_file(sftp, myfile, myfile_remote,
+                                myfile_local)
+
+            # Delete remote files?
+            if download_config.delete_active:
+                delete_remote_file(sftp, myfile, myfile_remote)
+        else:
+            if download_config.log_active:
+                write_log("{} is not a {} file. Skipping...".format(myfile, allowed_extension))
+            print("{} is not a {} file. Skipping...".format(myfile, allowed_extension))
+            continue
 
 sftp.close()
 client.close()

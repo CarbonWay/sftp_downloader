@@ -35,7 +35,7 @@ local_path = "/home/localuser/backups"
 #
 # Activity log ON: True
 # Activity log OFF: False
-log_active = True 
+log_active = True
 
 # Log folder and file name
 log_path = "/home/localuser/backups"
