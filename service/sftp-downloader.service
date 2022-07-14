@@ -1,0 +1,6 @@
+[Unit]
+Description=SFTP download script to local directory
+ 
+[Service]
+Type=oneshot
+ExecStart=python3 /opt/SFTPDownloader/download_backup.py

@@ -1,0 +1,9 @@
+[Unit]
+Description=Timer for SFTP downloader script
+ 
+[Timer]
+OnUnitActiveSec=30min
+OnBoot=10s
+ 
+[Install]
+WantedBy=timers.target
